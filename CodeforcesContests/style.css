@@ -1,0 +1,29 @@
+body {
+   text-align: center;
+   color: white;
+   background-color: black;
+}
+
+h1 {
+   color: orange;
+   font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Set a fixed size for the canvas elements */
+#ratingChart,
+#submissionChart {
+   max-width: 1000px;
+   /* Set desired width */
+   max-height: 300px;
+   /* Set desired height */
+   border: 1px solid black;
+   /* Optional: add a border to see the rectangle */
+}
+
+#chartContainer {
+   display: flex;
+   flex-direction: column;
+   justify-content: space-around;
+   align-items: center;
+   /* Distribute space between the charts */
+}
