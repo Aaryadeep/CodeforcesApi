@@ -97,13 +97,20 @@ function groupAcceptedByRating(submissions) {
    return ratingCounts;
 }
 
+let ratingChartInstance = null;
+let submissionChartInstance = null;
+
 // Function to display the user's rating graph
 function displayRatingGraph(ratingHistory) {
+   document.getElementById('ratingChart').innerHTML = "";
    const ctx = document.getElementById('ratingChart').getContext('2d');
+   if (ratingChartInstance) {
+      ratingChartInstance.destroy();
+   }
    const labels = ratingHistory.map(entry => new Date(entry.ratingUpdateTimeSeconds * 1000).toLocaleDateString());
    const ratings = ratingHistory.map(entry => entry.newRating);
 
-   new Chart(ctx, {
+   ratingChartInstance = new Chart(ctx, {
       type: 'line',
       data: {
          labels: labels,
@@ -126,11 +133,15 @@ function displayRatingGraph(ratingHistory) {
 
 // Function to display the user's accepted submissions count by rating
 function displaySubmissionGraph(acceptedByRating) {
+   document.getElementById('submissionChart').innerHTML = "";
    const ctx = document.getElementById('submissionChart').getContext('2d');
+   if (submissionChartInstance) {
+      submissionChartInstance.destroy();
+   }
    const ratings = Object.keys(acceptedByRating);
    const counts = Object.values(acceptedByRating);
 
-   new Chart(ctx, {
+   submissionChartInstance = new Chart(ctx, {
       type: 'line',
       data: {
          labels: ratings,
