@@ -116,6 +116,7 @@ function displayRatingGraph(ratingHistory) {
          labels: labels,
          datasets: [{
             label: 'Rating',
+            color: 'white',
             data: ratings,
             fill: false,
             borderColor: 'rgb(75, 192, 192)',
@@ -123,9 +124,16 @@ function displayRatingGraph(ratingHistory) {
          }]
       },
       options: {
+         plugins: {
+            legend: {
+               labels: {
+                  color: 'white'
+               }
+            }
+         },
          scales: {
-            x: { title: { display: true, text: 'Date' } },
-            y: { title: { display: true, text: 'Rating' } }
+            x: { title: { display: true, text: 'Date', color: 'white' }, ticks: { color: 'white' } },
+            y: { title: { display: true, text: 'Rating', color: 'white' }, ticks: { color: 'white' } }
          }
       }
    });
@@ -147,6 +155,7 @@ function displaySubmissionGraph(acceptedByRating) {
          labels: ratings,
          datasets: [{
             label: 'Accepted Submissions by Rating',
+            color: 'white',
             data: counts,
             fill: false,
             borderColor: 'rgb(255, 99, 132)',
@@ -154,9 +163,16 @@ function displaySubmissionGraph(acceptedByRating) {
          }]
       },
       options: {
+         plugins: {
+            legend: {
+               labels: {
+                  color: 'white'
+               }
+            }
+         },
          scales: {
-            x: { title: { display: true, text: 'Problem Rating' } },
-            y: { title: { display: true, text: 'Count of Accepted Submissions' } }
+            x: { title: { display: true, text: 'Problem Rating', color: 'white' }, ticks: { color: 'white' } },
+            y: { title: { display: true, text: 'Count of Accepted Submissions', color: 'white' }, ticks: { color: 'white' } }
          }
       }
    });

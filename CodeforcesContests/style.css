@@ -12,6 +12,7 @@ h1 {
 /* Set a fixed size for the canvas elements */
 #ratingChart,
 #submissionChart {
+   color: white;
    max-width: 1000px;
    /* Set desired width */
    max-height: 300px;
